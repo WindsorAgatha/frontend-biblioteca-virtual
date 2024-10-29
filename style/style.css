@@ -282,6 +282,9 @@ a:hover {
     width: 150px;
     background-color: white;
     margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     box-shadow: 0 5px 5px #242424;
     text-align: center;
