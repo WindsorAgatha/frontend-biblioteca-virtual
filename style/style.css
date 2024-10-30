@@ -495,3 +495,25 @@ form {
     overflow: auto;
     height: 100vh;
 }
+.cadastrar-livro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.botao-cadastrar {
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    border-color: #4287d6;
+    background-color: #ddd8c6;
+    color: #8d7f58;
+    cursor: pointer;
+}
+
+.botao-cadastrar:hover {
+   background-color:rgb(114, 114, 114) ;
+   color: white;
+   transition: all 200ms;
+}
