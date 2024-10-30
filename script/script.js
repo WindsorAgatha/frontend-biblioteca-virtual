@@ -73,7 +73,7 @@ function fetchAndDisplayLivros(endpoint) {
 
 fetchAndDisplayLivros(livrosUrl)
 
-
+//display genres
 const genreUrl = "http://localhost:5287/api/LiteraryGenre"
 
 function fetchAndDisplayGenre(url) {
