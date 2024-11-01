@@ -42,13 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
 //api
 
 
-let url = "http://localhost:5287/api/Book"
-let div_container = document.getElementsByClassName("container")[0]
+
+const livrosUrl = "http://localhost:5287/api/Book"
 
 function fetchAndDisplayLivros(endpoint) {
+    let div_container = document.getElementsByClassName("container")[0]
+
     fetch(endpoint)
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             data.map(element => {
                 let card = document.createElement("div")
                 card.classList.add("card")
@@ -68,35 +71,89 @@ function fetchAndDisplayLivros(endpoint) {
 
 }
 
-fetchAndDisplayLivros(url)
+fetchAndDisplayLivros(livrosUrl)
 
+//display genres
+const genreUrl = "http://localhost:5287/api/LiteraryGenre"
 
-// function fetchAndDisplayLivros(endpoint) {
-//     fetch(endpoint)
-//         .then(response => response.json())
-//         .then(data => {
-//             data.map(element => {
-//                 let divCard = document.createElement("div")
-//                 divCard.classList.add("card")
-//                 let divCover = document.createElement("div")
-//                 divCover.classList.add("div-cover")
-//                 let a = document.createElement("a")
-//                 a.classList.add("detalhes")
-//                 a.textContent = "Detalhes"
-//                 let img = document.createElement("img")
-//                 // img.src = element.imgUrl
-//                 divCover.appendChild(a)
-//                 divCard.appendChild(divCover)
-//                 divCard.appendChild(img)
-//                 div.appendChild(divCard)
-//             })
-//         })
-// }
-// fetchAndDisplayLivros(url)
+function fetchAndDisplayGenre(url) {
+    const genreContainer = document.getElementsByClassName('genre-container')[0]
 
-
-function fetchAndDisplayGenre() {
-    console.log("teste")
+    fetch(url)
+        .then(response => response.json(response))
+        .then(data => {
+            data.map(genre => {
+                let genreCard = document.createElement("div")
+                genreCard.classList.add("genre-card")
+                let h3 = document.createElement("h3")
+                h3.innerText = genre.name
+                genreCard.appendChild(h3)
+                genreContainer.appendChild(genreCard)
+            })
+        })
 }
 
-fetchAndDisplayGenre()
+fetchAndDisplayGenre(genreUrl)
+
+
+// <!DOCTYPE html>
+// <html lang="pt-BR">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Formulário de Sucos</title>
+// </head>
+// <body>
+//     <h1>Pedido de Sucos</h1>
+//     <form id="form-succo">
+//         <label for="fruta">Fruta:</label>
+//         <input type="text" id="fruta" name="fruta" required>
+//         <br><br>
+//         <label for="quantidade">Quantidade:</label>
+//         <input type="number" id="quantidade" name="quantidade" required>
+//         <br><br>
+//         <label for="cliente">Nome do Cliente:</label>
+//         <input type="text" id="cliente" name="cliente" required>
+//         <br><br>
+//         <button type="submit">Enviar Pedido</button>
+//     </form>
+
+//     <script>
+//         document.getElementById('form-succo').addEventListener('submit', async function(event) {
+//             event.preventDefault(); // Impede o envio padrão do formulário
+
+//             const fruta = document.getElementById('fruta').value;
+//             const quantidade = document.getElementById('quantidade').value;
+//             const cliente = document.getElementById('cliente').value;
+
+//             const url = 'https://exemplo.com/api/sucos'; // URL da API
+//             const dados = {
+//                 fruta: fruta,
+//                 quantidade: quantidade,
+//                 cliente: cliente
+//             };
+
+//             try {
+//                 const response = await fetch(url, {
+//                     method: 'POST',
+//                     headers: {
+//                         'Content-Type': 'application/json'
+//                     },
+//                     body: JSON.stringify(dados)
+//                 });
+
+//                 if (!response.ok) {
+//                     throw new Error(`Erro: ${response.status}`);
+//                 }
+
+//                 const resultado = await response.json();
+//                 console.log('Sucesso:', resultado);
+//                 alert('Pedido enviado com sucesso!'); // Notificação de sucesso
+//             } catch (error) {
+//                 console.error('Erro ao enviar dados:', error);
+//                 alert('Erro ao enviar o pedido. Tente novamente.');
+//             }
+//         });
+//     </script>
+// </body>
+// </html>
