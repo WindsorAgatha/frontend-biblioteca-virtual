@@ -76,11 +76,10 @@ html, body {
 }
 
 .drop-down-menu {
-    width: 100%;
+    width: 400px;
+    background-color: #0A2647;
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .drop-down-container {
