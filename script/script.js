@@ -96,6 +96,43 @@ function fetchAndDisplayGenre(url) {
 fetchAndDisplayGenre(genreUrl)
 
 
+
+//select
+
+const selectUrl = "http://localhost:5287/api/LiteraryGenre"
+
+function fetchAndDisplaySelectGenre(url) {
+    const genreSelect = document.getElementsByClassName('form-select')[0]
+
+    fetch(url)
+        .then(response => response.json(response))
+        .then(data => {
+            data.map(el => {
+                console.log(el)
+                let option = document.createElement('option')
+                option.textContent = el.name
+                genreSelect.appendChild(option)
+            })
+        })
+}
+
+fetchAndDisplaySelectGenre(selectUrl)
+
+
+//     fetch(url)
+//         .then(response => response.json(response))
+//         .then(data => {
+//             data.map(genre => {
+//                 let genreCard = document.createElement("div")
+//                 genreCard.classList.add("genre-card")
+//                 let h3 = document.createElement("h3")
+//                 h3.innerText = genre.name
+//                 genreCard.appendChild(h3)
+//                 genreContainer.appendChild(genreCard)
+//             })
+//         })
+// }
+
 // <!DOCTYPE html>
 // <html lang="pt-BR">
 // <head>
