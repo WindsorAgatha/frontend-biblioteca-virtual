@@ -507,7 +507,7 @@ form {
 }
 
 .botao-cadastrar {
-    height: 90px;
+    height: 50px;
     width: 90px;
     border-radius: 5px;
     border-color: #4287d6;
@@ -517,8 +517,14 @@ form {
 }
 
 .botao-cadastrar:hover {
-   background-color:rgb(114, 114, 114) ;
-   color: white;
-   transition: all 200ms;
+    background-color: rgb(114, 114, 114);
+    color: white;
+    transition: all 200ms;
 }
 
+.arrow {
+    height: 30px;
+    width: 30px;
+    margin: 20px;
+    cursor: pointer;
+}
