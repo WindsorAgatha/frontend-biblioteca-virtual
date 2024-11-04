@@ -42,13 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
 //api
 
 
-let url = "http://localhost:5287/api/Book"
-let div_container = document.getElementsByClassName("container")[0]
+
+const livrosUrl = "http://localhost:5287/api/Book"
 
 function fetchAndDisplayLivros(endpoint) {
+    let div_container = document.getElementsByClassName("container")[0]
+
     fetch(endpoint)
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             data.map(element => {
                 let card = document.createElement("div")
                 card.classList.add("card")
@@ -68,35 +71,27 @@ function fetchAndDisplayLivros(endpoint) {
 
 }
 
-fetchAndDisplayLivros(url)
+fetchAndDisplayLivros(livrosUrl)
 
+//display genres
+const genreUrl = "http://localhost:5287/api/LiteraryGenre"
 
-// function fetchAndDisplayLivros(endpoint) {
-//     fetch(endpoint)
-//         .then(response => response.json())
-//         .then(data => {
-//             data.map(element => {
-//                 let divCard = document.createElement("div")
-//                 divCard.classList.add("card")
-//                 let divCover = document.createElement("div")
-//                 divCover.classList.add("div-cover")
-//                 let a = document.createElement("a")
-//                 a.classList.add("detalhes")
-//                 a.textContent = "Detalhes"
-//                 let img = document.createElement("img")
-//                 // img.src = element.imgUrl
-//                 divCover.appendChild(a)
-//                 divCard.appendChild(divCover)
-//                 divCard.appendChild(img)
-//                 div.appendChild(divCard)
-//             })
-//         })
-// }
-// fetchAndDisplayLivros(url)
+function fetchAndDisplayGenre(url) {
+    const genreContainer = document.getElementsByClassName('genre-container')[0]
 
-
-function fetchAndDisplayGenre() {
-    console.log("teste")
+    fetch(url)
+        .then(response => response.json(response))
+        .then(data => {
+            data.map(genre => {
+                let genreCard = document.createElement("div")
+                genreCard.classList.add("genre-card")
+                let h3 = document.createElement("h3")
+                h3.innerText = genre.name
+                genreCard.appendChild(h3)
+                genreContainer.appendChild(genreCard)
+            })
+        })
 }
 
-fetchAndDisplayGenre()
+fetchAndDisplayGenre(genreUrl)
+
