@@ -51,7 +51,7 @@ function fetchAndDisplayLivros(endpoint) {
     fetch(endpoint)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+
             data.map(element => {
                 let card = document.createElement("div")
                 card.classList.add("card")
@@ -99,6 +99,7 @@ fetchAndDisplayGenre(genreUrl)
 
 //select
 
+
 const selectUrl = "http://localhost:5287/api/LiteraryGenre"
 
 function fetchAndDisplaySelectGenre(url) {
@@ -108,15 +109,95 @@ function fetchAndDisplaySelectGenre(url) {
         .then(response => response.json(response))
         .then(data => {
             data.map(el => {
-                console.log(el)
                 let option = document.createElement('option')
                 option.textContent = el.name
+                option.value = el.id
                 genreSelect.appendChild(option)
+                console.log(option.id)
+
             })
         })
 }
 
 fetchAndDisplaySelectGenre(selectUrl)
+
+
+
+
+
+async function createBook(e) {
+    const selectUrl = "http://localhost:5287/api/Book"
+
+    e.preventDefault()
+
+    let genreSelect = document.getElementsByClassName("form-select")[0]
+
+    let titulo = document.getElementById("titulo").value
+    let autor = document.getElementById("autor").value
+    // let imgUrl = document.getElementById("imgUrl").value
+    // let avaliacao = document.getElementById("avaliacao").value
+    let descricao = document.getElementById("descricao").value
+    let quantidade = document.getElementById("quantidade").value
+    let isbn = document.getElementById("isbn").value
+    let anoPublicacao = document.getElementById("anoPublicacao").value
+    let editora = document.getElementById("editora").value
+    let genreId = document.getElementsByClassName("form-select")[0].value
+    let genreName = genreSelect.options[genreSelect.selectedIndex].text
+
+    const dados = {
+        title: titulo,
+        publicationYear: parseInt(anoPublicacao),
+        quantity: parseInt(quantidade),
+        sumary: descricao,
+        authors: autor,
+        publisher: editora,
+        isbn,
+        literaryGenre: {
+            id: genreId,
+            name: genreName
+        }
+    }
+
+    try {
+
+        
+
+
+        const paramns =
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        }
+
+
+
+        const response = await fetch(selectUrl, paramns);
+
+        console.log(response)
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status}`);
+        }
+
+        const resultado = await response.json();
+        console.log('Sucesso:', resultado);
+        alert('Pedido enviado com sucesso!'); // Notificação de sucesso
+    } catch (error) {
+        console.error('Erro ao enviar dados:', error);
+        alert('Erro ao enviar o pedido. Tente novamente.');
+    }
+}
+
+
+
+
+
+
+
+
 
 
 //     fetch(url)
