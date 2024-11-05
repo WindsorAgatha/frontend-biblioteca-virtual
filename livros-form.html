@@ -18,7 +18,7 @@
         </div>
         <div class="form-container">
             <h1 class="form-title">Cadastro de Livro</h1>
-            <form action="#" method="post" id="book-form">
+            <form action="#" method="post" class="book-form" id="book-form">
                 <label class="form-label" for="titulo">Título:</label>
                 <input class="form-input" type="text" id="titulo" name="titulo" required>
 
@@ -39,7 +39,7 @@
 
                 <label class="form-label" for="Generos literários" id="genero-literario">Gêneros literários:</label>
                 <select class="form-select">
-                
+
                 </select>
 
 
@@ -52,7 +52,7 @@
                 <label class="form-label" for="editora">Editora:</label>
                 <input class="form-input" type="text" id="editora" name="editora" required>
 
-                <button class="form-button" type="submit" id="form-button">Cadastrar
+                <button class="form-button" type="submit" id="form-button" onclick="createBook(event)">Cadastrar
                     Livro</button>
             </form>
         </div>
