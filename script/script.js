@@ -132,10 +132,10 @@ async function createBook(e) {
 
     let genreSelect = document.getElementsByClassName("form-select")[0]
 
+    
+
     let titulo = document.getElementById("titulo").value
-    let autor = document.getElementById("autor").value
-    // let imgUrl = document.getElementById("imgUrl").value
-    // let avaliacao = document.getElementById("avaliacao").value
+    let autores = document.getElementById("autor").value.split(",").map(autor => autor.trim())
     let descricao = document.getElementById("descricao").value
     let quantidade = document.getElementById("quantidade").value
     let isbn = document.getElementById("isbn").value
@@ -148,21 +148,18 @@ async function createBook(e) {
         title: titulo,
         publicationYear: parseInt(anoPublicacao),
         quantity: parseInt(quantidade),
-        sumary: descricao,
-        authors: autor,
+        summary: descricao,
+        authors: autores,
         publisher: editora,
         isbn,
         literaryGenre: {
-            id: genreId,
+            id: parseInt(genreId),
             name: genreName
         }
     }
+    console.log(dados)
 
     try {
-
-        
-
-
         const paramns =
         {
             method: 'POST',
@@ -176,17 +173,17 @@ async function createBook(e) {
 
         const response = await fetch(selectUrl, paramns);
 
-        console.log(response)
+    
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status}`);
         }
 
         const resultado = await response.json();
-        console.log('Sucesso:', resultado);
+     
         alert('Pedido enviado com sucesso!'); // Notificação de sucesso
     } catch (error) {
-        console.error('Erro ao enviar dados:', error);
+       
         alert('Erro ao enviar o pedido. Tente novamente.');
     }
 }
