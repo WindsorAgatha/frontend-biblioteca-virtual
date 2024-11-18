@@ -132,7 +132,6 @@ async function createBook(e) {
 
     let genreSelect = document.getElementsByClassName("form-select")[0]
 
-    
 
     let titulo = document.getElementById("titulo").value
     let autores = document.getElementById("autor").value.split(",").map(autor => autor.trim())
@@ -173,17 +172,28 @@ async function createBook(e) {
 
         const response = await fetch(selectUrl, paramns);
 
-    
+
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status}`);
         }
 
         const resultado = await response.json();
-     
+
         alert('Pedido enviado com sucesso!'); // Notificação de sucesso
     } catch (error) {
-       
+
         alert('Erro ao enviar o pedido. Tente novamente.');
+    }
+}
+
+async function createClass(e) {
+    let titulo = document.getElementById("titulo").value
+    let turno = document.getElementById("turno").value
+
+    try {
+
+    } catch (error) {
+
     }
 }
