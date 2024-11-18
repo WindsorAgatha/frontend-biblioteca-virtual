@@ -476,7 +476,23 @@ form {
     padding: 20px;
 }
 
+#genre-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
 .form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.genre-form{
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
@@ -490,7 +506,18 @@ form {
     color: #333;
 }
 
+.genre-title{
+    text-align: center;
+    color: #333;
+}
+
 .form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.genre-label{
     display: block;
     margin-bottom: 5px;
     color: #555;
@@ -499,6 +526,14 @@ form {
 .form-input,
 .form-select,
 .form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.genre-input{
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -516,6 +551,20 @@ form {
     width: 100%;
 }
 
+.genre-button{
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.genre-button:hover{
+    background-color: #218838;
+}
+
 .form-button:hover {
     background-color: #218838;
 }
@@ -524,6 +573,15 @@ form {
     overflow: auto;
     height: 100vh;
 }
+
+.genre-overflow{
+    overflow: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cadastrar-livro {
     width: 100%;
     display: flex;
