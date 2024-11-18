@@ -132,7 +132,7 @@ async function createBook(e) {
 
     let genreSelect = document.getElementsByClassName("form-select")[0]
 
-    
+
 
     let titulo = document.getElementById("titulo").value
     let autores = document.getElementById("autor").value.split(",").map(autor => autor.trim())
@@ -173,17 +173,50 @@ async function createBook(e) {
 
         const response = await fetch(selectUrl, paramns);
 
-    
+
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status}`);
         }
 
         const resultado = await response.json();
-     
+
         alert('Pedido enviado com sucesso!'); // Notificação de sucesso
     } catch (error) {
-       
+
         alert('Erro ao enviar o pedido. Tente novamente.');
     }
+}
+
+async function createGenre(e) {
+    e.preventDefault()
+
+    let genreName = document.getElementById("genre-text").value
+    const genreObj = {
+        id: 0,
+        name: genreName,
+    }
+    try {
+
+        const paramns = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(genreObj)
+        }
+
+        const response = await fetch('http://localhost:5287/api/LiteraryGenre', paramns)
+
+        if (response.ok) {
+            alert('Gênero criado com sucesso!')
+        }
+        else{
+            alert('Erro ao criar gênero')
+        }
+
+    } catch (error) {
+        console.error('Erro ao criar gênero' + error)
+    }
+
 }
