@@ -132,10 +132,10 @@ async function createBook(e) {
 
     let genreSelect = document.getElementsByClassName("form-select")[0]
 
+    
+
     let titulo = document.getElementById("titulo").value
-    let autor = document.getElementById("autor").value
-    // let imgUrl = document.getElementById("imgUrl").value
-    // let avaliacao = document.getElementById("avaliacao").value
+    let autores = document.getElementById("autor").value.split(",").map(autor => autor.trim())
     let descricao = document.getElementById("descricao").value
     let quantidade = document.getElementById("quantidade").value
     let isbn = document.getElementById("isbn").value
@@ -148,21 +148,18 @@ async function createBook(e) {
         title: titulo,
         publicationYear: parseInt(anoPublicacao),
         quantity: parseInt(quantidade),
-        sumary: descricao,
-        authors: autor,
+        summary: descricao,
+        authors: autores,
         publisher: editora,
         isbn,
         literaryGenre: {
-            id: genreId,
+            id: parseInt(genreId),
             name: genreName
         }
     }
+    console.log(dados)
 
     try {
-
-        
-
-
         const paramns =
         {
             method: 'POST',
@@ -176,106 +173,17 @@ async function createBook(e) {
 
         const response = await fetch(selectUrl, paramns);
 
-        console.log(response)
+    
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status}`);
         }
 
         const resultado = await response.json();
-        console.log('Sucesso:', resultado);
+     
         alert('Pedido enviado com sucesso!'); // Notificação de sucesso
     } catch (error) {
-        console.error('Erro ao enviar dados:', error);
+       
         alert('Erro ao enviar o pedido. Tente novamente.');
     }
 }
-
-
-
-
-
-
-
-
-
-
-//     fetch(url)
-//         .then(response => response.json(response))
-//         .then(data => {
-//             data.map(genre => {
-//                 let genreCard = document.createElement("div")
-//                 genreCard.classList.add("genre-card")
-//                 let h3 = document.createElement("h3")
-//                 h3.innerText = genre.name
-//                 genreCard.appendChild(h3)
-//                 genreContainer.appendChild(genreCard)
-//             })
-//         })
-// }
-
-// <!DOCTYPE html>
-// <html lang="pt-BR">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Formulário de Sucos</title>
-// </head>
-// <body>
-//     <h1>Pedido de Sucos</h1>
-//     <form id="form-succo">
-//         <label for="fruta">Fruta:</label>
-//         <input type="text" id="fruta" name="fruta" required>
-//         <br><br>
-//         <label for="quantidade">Quantidade:</label>
-//         <input type="number" id="quantidade" name="quantidade" required>
-//         <br><br>
-//         <label for="cliente">Nome do Cliente:</label>
-//         <input type="text" id="cliente" name="cliente" required>
-//         <br><br>
-//         <button type="submit">Enviar Pedido</button>
-//     </form>
-
-//     <script>
-//         document.getElementById('form-succo').addEventListener('submit', async function(event) {
-//             event.preventDefault(); // Impede o envio padrão do formulário
-
-//             const fruta = document.getElementById('fruta').value;
-//             const quantidade = document.getElementById('quantidade').value;
-//             const cliente = document.getElementById('cliente').value;
-
-//             const url = 'https://exemplo.com/api/sucos'; // URL da API
-//             const dados = {
-//                 fruta: fruta,
-//                 quantidade: quantidade,
-//                 cliente: cliente
-//             };
-
-//             try {
-//                 const response = await fetch(url, {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json'
-//                     },
-//                     body: JSON.stringify(dados)
-//                 });
-
-//                 if (!response.ok) {
-//                     throw new Error(`Erro: ${response.status}`);
-//                 }
-
-//                 const resultado = await response.json();
-//                 console.log('Sucesso:', resultado);
-//                 alert('Pedido enviado com sucesso!'); // Notificação de sucesso
-//             } catch (error) {
-//                 console.error('Erro ao enviar dados:', error);
-//                 alert('Erro ao enviar o pedido. Tente novamente.');
-//             }
-//         });
-//     </script>
-// </body>
-// </html>
-
-
-
-// Um comentario 
