@@ -60,6 +60,7 @@ function fetchAndDisplayLivros(endpoint) {
                 let img = document.createElement("img")
                 img.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDJvhbUIPa09Bpuf4_zBPzTP9noLhwoysvt6JXsJWV8essbMLW3VsAw01apJuoaRUAijcN1TVX12aMPlb3lLCY4UvQugvoSvmR19E8Cg9BHeOmPco85CQR-WE79CxzFdklRFqUY8auGH0/s1600/Conhe%25C3%25A7a+os+4+Tipos+de+Capas+de+Livro+que+os+Designers+Normalmente+Desenvolvem+-+Arquiteto+Vers%25C3%25A1til+-+Rafael+Nascimento+%252812%2529.jpg"
                 let a = document.createElement("a")
+                a.href = `detalhes-livro.html?id=${element.id}`
                 a.classList.add("detalhes")
                 a.textContent = "Detalhes"
                 divCover.appendChild(img)
