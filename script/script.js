@@ -124,15 +124,12 @@ fetchAndDisplaySelectGenre(selectUrl)
 
 
 
-
-
 async function createBook(e) {
     const selectUrl = "http://localhost:5287/api/Book"
 
     e.preventDefault()
 
     let genreSelect = document.getElementsByClassName("form-select")[0]
-
 
 
     let titulo = document.getElementById("titulo").value
@@ -188,6 +185,7 @@ async function createBook(e) {
         alert('Erro ao enviar o pedido. Tente novamente.');
     }
 }
+
 
 async function createGenre(e) {
     e.preventDefault()
