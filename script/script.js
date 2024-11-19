@@ -60,6 +60,7 @@ function fetchAndDisplayLivros(endpoint) {
                 let img = document.createElement("img")
                 img.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDJvhbUIPa09Bpuf4_zBPzTP9noLhwoysvt6JXsJWV8essbMLW3VsAw01apJuoaRUAijcN1TVX12aMPlb3lLCY4UvQugvoSvmR19E8Cg9BHeOmPco85CQR-WE79CxzFdklRFqUY8auGH0/s1600/Conhe%25C3%25A7a+os+4+Tipos+de+Capas+de+Livro+que+os+Designers+Normalmente+Desenvolvem+-+Arquiteto+Vers%25C3%25A1til+-+Rafael+Nascimento+%252812%2529.jpg"
                 let a = document.createElement("a")
+                a.href = `detalhes-livro.html?id=${element.id}`
                 a.classList.add("detalhes")
                 a.textContent = "Detalhes"
                 divCover.appendChild(img)
@@ -120,8 +121,6 @@ function fetchAndDisplaySelectGenre(url) {
 }
 
 fetchAndDisplaySelectGenre(selectUrl)
-
-
 
 
 
@@ -187,13 +186,36 @@ async function createBook(e) {
     }
 }
 
-async function createClass(e) {
-    let titulo = document.getElementById("titulo").value
-    let turno = document.getElementById("turno").value
 
+async function createGenre(e) {
+    e.preventDefault()
+
+    let genreName = document.getElementById("genre-text").value
+    const genreObj = {
+        id: 0,
+        name: genreName,
+    }
     try {
 
-    } catch (error) {
+        const paramns = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(genreObj)
+        }
 
+        const response = await fetch('http://localhost:5287/api/LiteraryGenre', paramns)
+
+        if (response.ok) {
+            alert('Gênero criado com sucesso!')
+        }
+        else{
+            alert('Erro ao criar gênero')
+        }
+
+    } catch (error) {
+        console.error('Erro ao criar gênero' + error)
     }
+
 }
