@@ -4,44 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Estudante</title>
-    <link rel="stylesheet" href="./style/student-form.css">
+    <link rel="stylesheet" href="style/student-form.css">
 </head>
 <body>
-    <div class="form-container">
-        <h1>Cadastro de Estudante</h1>
-        <form id="student-form">
-            <label class="form-label" for="name">Nome:</label>
-            <input class="form-input" type="text" id="name" name="name" required>
+    <h1 id="form-title">Cadastro de Estudante</h1>
+    <form id="student-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required maxlength="100">
 
-            <label class="form-label" for="cpf">CPF:</label>
-            <input class="form-input" type="text" id="cpf" name="cpf" required>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required pattern="\d{11}" title="O CPF deve ter 11 dígitos.">
 
-            <label class="form-label" for="registrationNumber">Número de Matrícula:</label>
-            <input class="form-input" type="text" id="registrationNumber" name="registrationNumber">
+        <label for="registrationNumber">Número de Matrícula:</label>
+        <input type="text" id="registrationNumber" name="registrationNumber" maxlength="50">
 
-            <label class="form-label" for="address">Endereço:</label>
-            <input class="form-input" type="text" id="address" name="address" required>
+        <label for="address">Endereço:</label>
+        <input type="text" id="address" name="address" required>
 
-            <label class="form-label" for="phone">Telefone:</label>
-            <input class="form-input" type="text" id="phone" name="phone">
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" name="phone" pattern="\+?\d*" title="Formato inválido. Apenas números e '+' opcional.">
 
-            <label class="form-label" for="isActive">Ativo:</label>
-            <select class="form-select" id="isActive" name="isActive" required disabled>
-                <option value="true">Sim</option>
-            </select>
-            <label class="form-label" for="role">Papel:</label>
-            <select class="form-select" id="role" name="role" required disabled>
-                <option value="0" selected>Estudante</option>
-            </select>
+        <label for="classRoom">Turma:</label>
+        <select id="classRoom" name="classRoom" required>
+            <option value="" disabled selected>Selecione a turma</option>
+        </select>
 
-            <label class="form-label" for="classRoom">Turma:</label>
-            <select class="form-select" id="classRoom" name="classRoom" required>
-                <!-- Turmas serão carregadas dinamicamente -->
-            </select>
+        <button type="submit">Salvar</button>
+    </form>
 
-            <button class="form-button" type="submit">Cadastrar Estudante</button>
-        </form>
-    </div>
-    <script src="./script/student-form.js"></script>
+    <script src="script/student-form.js"></script>
 </body>
 </html>

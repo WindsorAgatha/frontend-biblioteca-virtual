@@ -1,57 +1,94 @@
-/* Estilos básicos para o formulário */
+/* Estilo geral da página */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    color: #333;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
 }
 
-.form-container {
-    width: 100%;
-    max-width: 500px;
+/* Cabeçalho */
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.form-label {
-    margin-bottom: 8px;
-    color: #555;
+/* Estilo dos rótulos */
+form label {
+    display: block;
     font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
 }
 
-.form-input, 
-.form-select {
-    width: 100%;
+/* Estilo dos campos de entrada */
+form input, form select, form button {
+    width: calc(100% - 20px);
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.form-button {
-    width: 100%;
-    padding: 10px;
-    background: #4caf50;
-    color: #fff;
-    border: none;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    font-size: 1em;
+    outline: none;
 }
 
-.form-button:hover {
-    background: #45a049;
+/* Placeholder para o select */
+form select {
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+/* Hover nos campos */
+form input:hover, form select:hover {
+    border-color: #888;
+}
+
+/* Estilo do botão */
+form button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #4cae4c;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    form {
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    form label {
+        font-size: 0.9em;
+    }
+
+    form input, form select, form button {
+        font-size: 0.9em;
+    }
 }
