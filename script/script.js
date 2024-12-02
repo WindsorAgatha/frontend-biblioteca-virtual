@@ -155,7 +155,7 @@ async function createBook(e) {
             name: genreName
         }
     }
-    console.log(dados)
+
 
     try {
         const paramns =
