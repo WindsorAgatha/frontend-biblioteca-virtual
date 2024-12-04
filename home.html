@@ -24,18 +24,51 @@
 <body id="body">
     <div class="theme-container" id="toggle-container">
         <nav class="drop-down-menu">
-            <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="">
-            <i class="fa-solid fa-bars fa-lg"></i>
-            <!-- <div class="img-mobile-container">
-                <img src="/assets/house-solid.svg" alt="">
-                <img src="/assets/book-solid.svg" alt="">
-                <img src="/assets/person-chalkboard-solid.svg" alt="">
-                <img src="/assets/right-to-bracket-solid.svg" alt="">
-            </div> -->
+            <div>
+            </div>
+            <div class="logo-menu">
+                    <div class="button-container" onclick="toggleTheme()">
+                        <button id="btn"></button>
+                    </div>
+                <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="">
+                <i onclick="handleDropDownMenu()" id="button-menu" class="fa-solid fa-bars fa-lg"></i>
+            </div>
+            <div class="menu-list-container">
+                <div class="menu-row">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-retweet"></i>
+                    <p>Aluguel/Devolução</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <p>Sugestão dos Professores</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-book"></i>
+                    <p>Consultar Livros</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <p>Área Administrativa</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <p>Área do Aluno</p>
+                </div>
+
+            </div>
         </nav>
         <nav class="navbar">
             <div class="img-container">
                 <img class="logo" src="/assets/Capturar.PNG" alt="">
+                <div class="theme-toggle-container">
+                    <div class="button-container" onclick="toggleTheme()">
+                        <button id="btn"></button>
+                    </div>
+                </div>
             </div>
             <ul class="menu-list">
                 <div class="img-nav">
@@ -72,11 +105,6 @@
                     </form>
                 </div>
             </div>
-            <div class="theme-toggle-container">
-                <div class="button-container" onclick="toggleTheme()">
-                    <button id="btn"></button>
-                </div>
-            </div>
             <section class="slider-wrapper">
                 <ul class="slides-container" id="slides-container">
                     <li class="slide" id="slide1">
@@ -107,7 +135,6 @@
                 </ul>
             </section>
             <div class="genre-container">
-
             </div>
             <div class="most-rented">
                 <h1 class="most-rented-title">Mais Alugados</h1>
@@ -188,7 +215,7 @@
             </div>
         </div>
         <footer></footer>
-        <script src="./script/script.js"></script>
+        <script src="./script/home.js"></script>
     </div>
 </body>
 

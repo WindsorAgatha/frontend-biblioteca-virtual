@@ -27,6 +27,13 @@ body {
     transition: all 400ms ease;
 }
 
+.logo-button-container {
+    display: flex;
+    width: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .night-mode .theme-container {
     background-color: #0A2647;
     transition: all 400ms ease;
@@ -43,7 +50,6 @@ body {
 
 .img-nav {
     display: flex;
-
 }
 
 .navbar {
@@ -73,21 +79,84 @@ body {
 
 .drop-down-menu {
     width: 100%;
+    height: 100px;
+    transition: all 300ms;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: #0A2647;
+    flex-direction: column;
+    background-color: #2c2c2c;
     padding: 10px;
+    color: #d3d3d3;
 
     i {
-        width: 30px;
-        color: #b1d0b8;
-        cursor: pointer;
+        margin-right: 20px;
     }
-    i:hover{
-        color: #4aa088;
+
+    i:hover {
+        color: #ffffff;
+
+    }
+
+    .logo-menu {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+
+}
+
+.rotate-button {
+    transition: 100ms;
+    transform: rotate(90deg);
+}
+
+
+.menu-list-container {
+    height: 0;
+    transition: all 100ms;
+    position: absolute;
+    visibility: collapse;
+    top: 80px;
+    z-index: 10;
+    width: 100%;
+    background-color: #2c2c2c;
+    padding: 20px;
+    /* margin-top: 10px; */
+
+    .menu-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 2px;
+        color: gainsboro;
+        border: #1d1d1d solid 2px;
+
+        i {
+            position: absolute;
+            align-self: left;
+            left: 30px;
+        }
     }
 }
+
+.menu-list-container.dropdown-menu-open {
+    height: 400px;
+    transition: all 100ms;
+    visibility: visible;
+}
+
+.menu-row:hover {
+    background-color: #757575;
+    border-radius: 5px;
+    color: rgb(34, 34, 34);
+    transition: all 200ms;
+}
+
 
 .drop-down-container {
     img {
@@ -116,6 +185,7 @@ body {
 .logo-drop-down {
     height: 60px;
     width: 60px;
+    margin: 0;
     border-radius: 100%;
 }
 
@@ -435,10 +505,9 @@ footer {
 
 .button-container {
     height: 25px;
-    width: 80px;
+    width: 45px;
     background-color: #F8F4EA;
     border-radius: 20px 20px;
-    margin-right: 10px;
     display: flex;
     align-items: center;
 
