@@ -16,43 +16,71 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./style/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/home.css">
     <title>Biblioteca Escola Dep. Oliveira Souza</title>
 </head>
 
 <body id="body">
     <div class="theme-container" id="toggle-container">
         <nav class="drop-down-menu">
-            <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="">
-            <div class="img-drop-down">
-                <img class="house" src="/assets/house-solid.svg" alt="">
-                <img class="book" src="/assets/book-solid.svg" alt="">
-                <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="">
-                <img class="login" src="/assets/right-to-bracket-solid.svg" alt="">
+            <div>
             </div>
-            <div class="drop-down-container">
-                <img src="./assets/bars-solid (1).svg" alt="">
+            <div class="logo-menu">
+                    <div class="button-container" onclick="toggleTheme()">
+                        <button id="btn"></button>
+                    </div>
+                <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="">
+                <i onclick="handleDropDownMenu()" id="button-menu" class="fa-solid fa-bars fa-lg"></i>
+            </div>
+            <div class="menu-list-container">
+                <div class="menu-row">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-retweet"></i>
+                    <p>Aluguel/Devolução</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <p>Sugestão dos Professores</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-book"></i>
+                    <p>Consultar Livros</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <p>Área Administrativa</p>
+                </div>
+                <div class="menu-row">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <p>Área do Aluno</p>
+                </div>
+
             </div>
         </nav>
         <nav class="navbar">
             <div class="img-container">
                 <img class="logo" src="/assets/Capturar.PNG" alt="">
+                <div class="theme-toggle-container">
+                    <div class="button-container" onclick="toggleTheme()">
+                        <button id="btn"></button>
+                    </div>
+                </div>
             </div>
             <ul class="menu-list">
                 <div class="img-nav">
-                    <img class="house" src="/assets/house-solid.svg" alt="">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home.html">Home</a></li>
                 </div>
                 <div class="img-nav">
-                    <img class="book" src="/assets/book-solid.svg" alt="">
-                    <li><a href="livros.html">Livros</a></li>
+                    <li><a href="books.html">books</a></li>
                 </div>
                 <div class="img-nav">
-                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="">
                     <li><a href="#">Sugestões dos professores</a></li>
                 </div>
                 <div class="img-nav">
-                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="">
                     <li><a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a></li>
                 </div>
             </ul>
@@ -75,11 +103,6 @@
                         <input id="endereco-formulario" type="text">
                         <button onclick="submitForm(event)">Enviar</button>
                     </form>
-                </div>
-            </div>
-            <div class="theme-toggle-container">
-                <div class="button-container" onclick="toggleTheme()">
-                    <button id="btn"></button>
                 </div>
             </div>
             <section class="slider-wrapper">
@@ -112,7 +135,6 @@
                 </ul>
             </section>
             <div class="genre-container">
-
             </div>
             <div class="most-rented">
                 <h1 class="most-rented-title">Mais Alugados</h1>
@@ -193,7 +215,7 @@
             </div>
         </div>
         <footer></footer>
-        <script src="./script/script.js"></script>
+        <script src="./script/home.js"></script>
     </div>
 </body>
 

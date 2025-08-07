@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Professores</title>
+    <link rel="stylesheet" href="style/teacher-form.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Cadastro de Professores</h1>
+        <form id="teacher-form">
+            <label for="name">Nome</label>
+            <input type="text" id="name" required>
+
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" required>
+
+            <label for="registrationNumber">Matrícula</label>
+            <input type="text" id="registrationNumber" required>
+
+            <label for="address">Endereço</label>
+            <input type="text" id="address" required>
+
+            <label for="phone">Telefone</label>
+            <input type="text" id="phone">
+
+            <label>Selecione as Turmas</label>
+            <div id="classRooms-container"></div>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+    <script src="script/teacher-form.js"></script>
+</body>
+</html>

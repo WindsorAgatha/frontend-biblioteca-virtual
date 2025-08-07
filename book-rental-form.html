@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Aluguel de Livro</title>
+    <link rel="stylesheet" href="./style/book-rental-form.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Alugar um Livro</h2>
+        <form id="rental-form">
+            <!-- ID do Aluguel -->
+            <div class="form-group">
+                <label for="rental-id">ID do Aluguel</label>
+                <input type="number" id="rental-id" name="id" placeholder="ID do Aluguel" required>
+            </div>
+
+            <!-- ID do Estudante -->
+            <div class="form-group">
+                <label for="student-id">ID do Estudante</label>
+                <input type="number" id="student-id" name="studentId" placeholder="ID do Estudante" required>
+            </div>
+
+            <!-- Livro -->
+            <div class="form-group">
+                <label for="book-id">ID do Livro</label>
+                <input type="number" id="book-id" name="book[id]" placeholder="ID do Livro" required>
+            </div>
+            <div class="form-group">
+                <label for="book-title">Título do Livro</label>
+                <input type="text" id="book-title" name="book[title]" placeholder="Título do Livro" required>
+            </div>
+            <div class="form-group">
+                <label for="book-isbn">ISBN</label>
+                <input type="text" id="book-isbn" name="book[isbn]" placeholder="ISBN do Livro" required>
+            </div>
+            <div class="form-group">
+                <label for="book-author">Autor(es)</label>
+                <textarea id="book-author" name="book[authors]" placeholder="Separe os nomes por vírgula"
+                    required></textarea>
+            </div>
+
+            <!-- Gênero Literário -->
+            <div class="form-group">
+                <label for="genre-name">Gênero Literário</label>
+                <input type="text" id="genre-name" name="book[literaryGenre][name]"
+                    placeholder="Nome do Gênero Literário" required>
+            </div>
+
+            <!-- Datas -->
+            <div class="form-group">
+                <label for="rental-date">Data do Aluguel</label>
+                <input type="date" id="rental-date" name="rentalDate" required>
+            </div>
+            <div class="form-group">
+                <label for="due-date">Data de Devolução</label>
+                <input type="date" id="due-date" name="dueDate" required>
+            </div>
+            <div class="form-group">
+                <label for="return-date">Data de Retorno</label>
+                <input type="date" id="return-date" name="returnDate">
+            </div>
+
+            <!-- Botão -->
+            <div class="form-actions">
+                <button type="submit">Alugar Livro</button>
+            </div>
+        </form>
+    </div>
+    <script src="./script/book-rental-form.js"></script>
+</body>
+
+</html>
